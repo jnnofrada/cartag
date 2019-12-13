@@ -4,6 +4,12 @@
  
 void setup () { 
   Serial.begin ( 9600 );
+  DDRC = (1 << PORTC0);
+  TCCR0A = (1 << COM0A0) | (1 << WGM01) | (1 << WGM00)
+
+  //stop
+  TCCR0B = (0 << CS02) | (0 << CS01) | (0 << CS00)
+  
 }
  
 void loop () { 
@@ -60,3 +66,9 @@ void loop () {
   delay ( 1000 );
   */
 }
+
+void stop(){
+    TCCR0B = (0 << CS02) | (0 << CS01) | (0 << CS00)
+}
+
+void 
